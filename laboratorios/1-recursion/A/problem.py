@@ -2,8 +2,11 @@ import json
 
 
 # TODO Complete!!
-def reverse(text):
-    return text
+def reverse(list):
+    if len(list)==1:
+        return list
+    else:
+        return list[-1]+reverse(list[:-1])
 
 
 if __name__ == '__main__':
