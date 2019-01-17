@@ -1,0 +1,22 @@
+[
+  {
+    "s": "HelloWorld",
+    "result": false
+  },
+  {
+    "s": "AEIOU",
+    "result": true
+  },
+  {
+    "s": "Algoritmos",
+    "result": false
+  },
+  {
+    "s": "analisis",
+    "result": false
+  },
+  {
+    "s": "saaaeees",
+    "result": true
+  }
+]
