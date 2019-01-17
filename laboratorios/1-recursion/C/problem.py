@@ -2,8 +2,19 @@ import json
 
 
 # TODO Complete!
-def has_more_vowels(s):
-    return False
+vowels = ['a','e','i','o','u','A','E','I','O','U']
+def has_more_vowels(text):
+    text = list(text)
+    cont = 0
+    for i in range(len(text)):
+        for j in range(len(vowels)):
+            if text[i] == vowels[j]:
+                cont += 1
+    rest = len(text) - cont
+    if cont <= rest:
+        return False
+    else:
+        return True
 
 
 if __name__ == '__main__':
