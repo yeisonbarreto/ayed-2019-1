@@ -1,3 +1,4 @@
+from sys import stdin
 def bbin(a,num,index):
     global n 
     if len(a) == 1:
@@ -9,14 +10,14 @@ def bbin(a,num,index):
             n+=1
             if n == len(a) and index == []:
                 return -1
-        return index
-            
+        return index  
 def main():
     global n
-    n=0
-    num = 6
-    a = [1,2,3,4,5,5,5,5,5,5,6,6,6,6,6,7,7]
+    n = 0
+    x = int(input('Número que deseas buscar: '))
+    num = input('Lista ordenada de números enteros separados por comas: ')
+    num = list(map(int,num.split(',')))
     index = []
-    print(bbin(a,num,index))
-
+    res = bbin(num,x,index)
+    print(*res)
 main()

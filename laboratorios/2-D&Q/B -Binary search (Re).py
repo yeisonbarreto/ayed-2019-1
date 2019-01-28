@@ -12,6 +12,11 @@ def bbin(a,num,index):
             index += mid
             return bbin(a[mid:],num,index)
 
-num = 7
-a = [1,2,3,4,5,6,7]
-index = 0
+def main():
+    x = int(input('Número que deseas buscar: '))
+    num = input('Lista ordenada de números enteros separados por comas: ')
+    num = list(map(int,num.split(',')))
+    index = 0
+    print(bbin(num,x,index))
+main()
+

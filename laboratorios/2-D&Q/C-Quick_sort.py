@@ -1,3 +1,4 @@
+from sys import stdin
 def quick_sort(lista):
     menor = []
     mayor = []
@@ -11,5 +12,9 @@ def quick_sort(lista):
             else:
                 mayor.append(lista[i])
     return quick_sort(menor) + [pivote] + quick_sort(mayor)
-lista = [-6,2,-12,8,5,3,-98,55]
+def main():
+    print('Secuencia de números separados por estacio!')
+    x = list(map(int,stdin.readline().strip().split(',')))
+    print(quick_sort(x))
+main()
     
