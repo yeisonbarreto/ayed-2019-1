@@ -13,6 +13,8 @@ def quick_sort(lista):
                 mayor.append(lista[i])
     return quick_sort(mayor) + [pivote] + quick_sort(menor)
 def main():
+    print('Numero de elementos!')
+    w = int(input())
     print('Secuencia de números separados por estacio!')
     x = list(map(int,stdin.readline().strip().split(' ')))
     res = quick_sort(x)
@@ -20,6 +22,6 @@ def main():
         print(x)
     else:
         r = res[-1] , res[0]
-        print(r)
+        print(*r)
 main()
     
