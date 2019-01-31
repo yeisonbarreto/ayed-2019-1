@@ -1,4 +1,3 @@
-from datetime import datetime
 from sys import stdin
 def mergesort(a):
     if len(a) == 1:
@@ -32,17 +31,13 @@ def merge(izq,der):
             d += 1
     return nueva
 def main():
-    instanteini = datetime.now()
-    x = [1,5,3,8,10,22,48,2,1,0,3,6,9]
+    print('Secuencia de números separados por estacio!')
+    x = list(map(int,stdin.readline().strip().split(' ')))
     if len(x) <= 10:
-        print(x)
+        print(*x)
     else:
         res = mergesort(x)
         res.reverse()
-        print(res[:10])
-    instantefin = datetime.now()
-    time = instantefin - instanteini
-    segundos = time.seconds
-    print(segundos)
+        print(*res[:10])
 main()
     
