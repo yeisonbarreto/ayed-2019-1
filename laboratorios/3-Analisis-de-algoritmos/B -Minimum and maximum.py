@@ -1,43 +1,37 @@
 from sys import stdin
-def mergesort(a):
-    if len(a) == 1:
-        return a
-    else:
-        mid = len(a) // 2
-        izq = mergesort(a[:mid])
-        der = mergesort(a[mid:])
-        a = merge(izq,der)
-    return a
-def merge(izq,der):
-    i = 0
-    d = 0
-    n = len(izq)
-    m = len(der)
-    nueva = []
-    while i < n and d < m:
-        if izq[i] < der[d]:
-            nueva += [izq[i]]
-            i +=1
+def merge_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    mid = len(arr) // 2
+    left, right = merge_sort(arr[:mid]), merge_sort(arr[mid:])
+    return merge(left, right, arr.copy())
+def merge(left, right, merged):
+    left_cursor, right_cursor = 0, 0
+    while left_cursor < len(left) and right_cursor < len(right):
+        if left[left_cursor] <= right[right_cursor]:
+            merged[left_cursor+right_cursor]=left[left_cursor]
+            left_cursor += 1
         else:
-            nueva += [der[d]]
-            d += 1
-    if i < n:
-        while i < n:
-            nueva += [izq[i]]
-            i += 1
-    if d < m:
-        while d < m:
-            nueva += [der[d]]
-            d += 1
-    return nueva
+            merged[left_cursor + right_cursor] = right[right_cursor]
+            right_cursor += 1
+
+    for left_cursor in range(left_cursor, len(left)):
+        merged[left_cursor + right_cursor] = left[left_cursor]
+
+    for right_cursor in range(right_cursor, len(right)):
+        merged[left_cursor + right_cursor] = right[right_cursor]
+         
+    return merged
 def main():
-    num = 11
-    x = [5,-2,3,4,10,-6,22,11,7,3,0]
+    print('Número de elementos en la secuencia!')
+    num = int(input())
+    print('Secuencia de números separados por estacio!')
+    x = list(map(int,stdin.readline().strip().split(' ')))
     if len(x) <= 1:
         print(x)
     else:
-        res = mergesort(x)
-        r = res[-1] , res[0]
+        res = merge_sort(x)
+        r = res[0] , res[-1]
         print(*r)
 main()
     
